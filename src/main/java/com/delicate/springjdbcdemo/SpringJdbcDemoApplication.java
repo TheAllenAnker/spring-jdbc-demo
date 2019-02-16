@@ -13,6 +13,9 @@ public class SpringJdbcDemoApplication implements CommandLineRunner {
     @Autowired
     private FooDAO fooDAO;
 
+    @Autowired
+    private BatchFooDAO batchFooDAO;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringJdbcDemoApplication.class, args);
     }
@@ -26,6 +29,7 @@ public class SpringJdbcDemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         fooDAO.insertData();
+        batchFooDAO.batchInsert();
         fooDAO.listData();
     }
 }
